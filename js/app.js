@@ -17,9 +17,8 @@
  * Define Global Variables
  * 
 */
-const navbar = document.querySelector(".navbar__menu");
-const section = document.querySelector("#navbar__list");
-
+const navbar = document.querySelector(".navbar__menu"); /* Selecting navbar and assigning it into a variable*/
+var sections = [document.querySelector("#navbar__list")]; /* Selecting ul element iside of the navbar and assigning it into a variable*/
 
 /**
  * End Global Variables
@@ -34,6 +33,18 @@ const section = document.querySelector("#navbar__list");
  */
 
 // build the nav
+
+/**
+ * Creating 4 sections inside the navbar using for loop.
+*/
+sections[0].textContent = "Section 1"; // Naming the first element in the navbar as (Secton 1).
+
+for (let i = 1; i <= 3; i++) {
+    const sec = document.createElement("ul"); // creating a <ul> element inside the 
+    sections[i] = sec; // Assigning i.e. storing the new <ul> element iside the array of sections.
+    navbar.appendChild(sections[i]); // Appending this <ul> element iside the navbar.
+    sections[i].textContent = "Section " + (i+1); // Changing the text of this new <ul> element to section and depending on the number of the loop it will be given the name Section (number of the loop).
+}
 
 // Add class 'active' to section when near top of viewport
 
