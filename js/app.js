@@ -37,13 +37,22 @@ var uL = [document.querySelector("#navbar__list")]; /* Selecting ul element isid
 /**
  * Creating 4 Unordered Lists inside the navbar using for loop.
 */
+var anc = document.createElement('a');
+uL[0].appendChild(anc);
+uL[0] = anc; // Assigning i.e. storing the new <a> element iside the array of Unordered Lists.
 uL[0].textContent = "Section 1"; // Naming the first element in the navbar as (Secton 1).
+uL[0].setAttribute("href", "#section1");
 
 for (let i = 1; i <= 3; i++) {
     const sec = document.createElement("ul"); // creating a <ul> element inside the document.
+    let anc2 = document.createElement("a"); // creating a <a> element inside the document.
+    let secID = ("#section" +(i + 1)); // this is the ID of the section which must be assigned inside the <a> element to enable us to scroll to it when we click on the navbar menu.
     uL[i] = sec; // Assigning i.e. storing the new <ul> element iside the array of Unordered Lists.
     navbar.appendChild(uL[i]); // Appending this <ul> element iside the navbar.
+    uL[i].appendChild(anc2); // Appending this <ul> element iside the <ul> element.
+    uL[i] = anc2; // Assigning i.e. storing the new <a> element iside the array of Unordered Lists.
     uL[i].textContent = "Section " + (i+1); // Changing the text of this new <ul> element to section and depending on the number of the loop it will be given the name Section (number of the loop).
+    uL[i].setAttribute("href", secID);
 }
 
 /**
