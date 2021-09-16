@@ -19,6 +19,8 @@
 */
 const navbar = document.querySelector(".navbar__menu"); /* Selecting navbar and assigning it into a variable*/
 var uL = [document.querySelector("#navbar__list")]; /* Selecting ul element iside of the navbar and assigning it into a variable*/
+const x = document.querySelector("html");
+x.setAttribute("style", "scroll-behavior: smooth;"); // Making the scroll behaviour smooth in the html element, which means across all the document.
 
 /**
  * End Global Variables
