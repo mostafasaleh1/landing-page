@@ -17,6 +17,8 @@
  * Define Global Variables
  * 
 */
+const navbar = document.querySelector(".navbar__menu");
+const section = document.querySelector("#navbar__list");
 
 
 /**
@@ -25,16 +27,13 @@
  * 
 */
 
-
-
 /**
  * End Helper Functions
  * Begin Main Functions
  * 
-*/
+ */
 
 // build the nav
-
 
 // Add class 'active' to section when near top of viewport
 
