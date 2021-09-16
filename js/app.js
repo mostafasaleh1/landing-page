@@ -46,6 +46,18 @@ for (let i = 1; i <= 3; i++) {
     uL[i].textContent = "Section " + (i+1); // Changing the text of this new <ul> element to section and depending on the number of the loop it will be given the name Section (number of the loop).
 }
 
+/**
+ * Styling the navigation bar and its sections.
+*/
+var cssStyle = document.createElement("style"); // Creating new style element on the document.
+document.head.appendChild(cssStyle); // appending this style element into the head of the document.
+cssStyle.innerHTML = ".navbar__menu {display: flex; flex-wrap:wrap; justify-content: right; background-color: rgb(0, 16, 65);}"; // Creating class to control the nav container as a flexbox.
+
+
+for (let j = 0; j <= uL.length; j++) {
+    uL[j].classList.add("menu__link"); // Adding class menu__link in the Stylesheet to the elements of the array (i.e. <ul> elements) using for loop.
+    uL[j].setAttribute("style", "font-family: 'Fira Sans', sans-serif; color: white; font-size: 1.15em;"); // setting an attribute that contains the styles for each element in the array.
+}
 // Add class 'active' to section when near top of viewport
 
 
