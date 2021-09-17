@@ -14,14 +14,14 @@
 */
 
 /**
- * Define Global Variables
+ *===== Define Global Variables
  * 
 */
 const navbar = document.querySelector(".navbar__menu"); /* Selecting navbar and assigning it into a variable*/
 var uL = [document.querySelector("#navbar__list")]; /* Selecting ul element iside of the navbar and assigning it into a variable*/
-const x = document.querySelector("html");
+const x = document.querySelector("html"); // selecting the <html> element to add smooth scroll behaviour to the page.
 x.setAttribute("style", "scroll-behavior: smooth;"); // Making the scroll behaviour smooth in the html element, which means across all the document.
-
+const mainElement = document.querySelector("#main"); // selecting the <main> element to add new section using the button.
 /**
  * End Global Variables
  * Start Helper Functions
@@ -37,7 +37,7 @@ x.setAttribute("style", "scroll-behavior: smooth;"); // Making the scroll behavi
 // build the nav
 
 /**
- * Creating 4 <Unordered Lists> and <anchor> elements inside the navbar using for loop.
+ *===== Creating 4 <Unordered Lists> and <anchor> elements inside the navbar using for loop.
 */
 var anc = document.createElement('a');
 uL[0].appendChild(anc);
@@ -62,7 +62,7 @@ for (let i = 1; i <= 3; i++) {
 }
 
 /**
- * Creating a button which is used to add more sections to the navbar menu.
+ *====== Creating a (button) which is used to add more sections to the navbar menu.
  */
 
 const button = document.createElement("button"); // Creating button
@@ -70,12 +70,13 @@ navbar.appendChild(button); // appending it into the navbar
 
 button.textContent = "+";
 
-var i = 3; // This is the index for the sections array, which is used to add new section.
+var i = 3; // This is the index for the sections array, which is used to add new section. It equals 3 becuase there are actually 4 elements inside of the array starting with index 0.
 
 button.addEventListener("click", function () { // an event listener when pressing the button it should create a new section in the navbar menu.
     i++; 
-   /** Creating new section in the navbar menu */
-    const sec = document.createElement("ul"); // creating a <ul> element inside the document.
+   /** --1-- Creating new section in the navbar menu */
+    
+   const sec = document.createElement("ul"); // creating a <ul> element inside the document.
     let anc2 = document.createElement("a"); // creating a <a> element inside the document.
     let secID = ("#section" +(i + 1)); // this is the ID of the section which must be assigned inside the <a> element to enable us to scroll to it when we click on the navbar menu.
     
@@ -88,12 +89,40 @@ button.addEventListener("click", function () { // an event listener when pressin
    
     uL[i].textContent = "Section " + (i+1); // Changing the text of this new <ul> element to section and depending on the number of the loop it will be given the name Section (number of the loop).
     uL[i].setAttribute("href", secID); // creating attributes to refer to the corresponding section.
+    
+    /** styling the created navbar menu element  */
+    uL[i].classList.add("menu__link"); // Adding class menu__link in the Stylesheet to the elements of the array (i.e. <ul> elements) using for loop.
+    uL[i].setAttribute("style", "font-family: 'Fira Sans', sans-serif; color: white; font-size: 1.15em;"); // setting an attribute that contains the styles for each element in the array.
 
-    alert("Section "+ (i+1) + " has been successfuly added.");
+    /** 2- Creating new section on the document in the main element with an id = #sectionX where X is a variable.*/
+    
+    let newSec = document.createElement("section"); // Creating new section.
+    mainElement.appendChild(newSec); //Appending this section to <main>.
+    newSec.setAttribute("id", ("section" + (i+1))); // adding an id to the new section with an index +1 to the previous section.
+    newSec.setAttribute("data-nav", ("Section " + (i+1))); // adding data-nav attribute and setting its value to (Section +1) from the previous section.
+
+    let secDiv = document.createElement("div"); //creating new <div> element.
+    newSec.appendChild(secDiv); // appending the new <div> element to the new section element.
+    secDiv.setAttribute("class", "landing__container"); // giving the <div> element a class (landing__container).
+
+    let secH = document.createElement("h2"); // creating new <h2> element.
+    secDiv.appendChild(secH); //appending the new <h2> element to the div container.
+    secH.textContent = ("Section " + (i+1)); // putting text inside the <h2> element.
+
+    let secP1 = document.createElement("p"); // creating new <paragraph> element.
+    secDiv.appendChild(secP1); //appending the new <paragraph> element to the <div> container.
+    secP1.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod."; // putting filler text inside of the new <paragraph> element.
+
+    let secP2 = document.createElement("p"); // creating another new <paragraph> element.
+    secDiv.appendChild(secP2); // appending the new <paragraph> element to the <div> container.
+    secP2.textContent = "Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non."; // putting filler text inside of the new <paragraph> element.
+
+    alert("Section "+ (i+1) + " has been successfuly added."); // printing text message to the user that the new section has been successfully added.
 });
+/** End of button. */
 
 /**
- * Styling the navigation bar and its sections.
+ *===== Styling the navigation bar and its sections.
 */
 
 var cssStyle = document.createElement("style"); // Creating new style element on the document.
