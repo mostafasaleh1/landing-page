@@ -140,7 +140,7 @@ document.head.appendChild(cssStyle); // appending this style element into the he
 cssStyle.innerHTML = ".navbar__menu {display: flex; flex-wrap:wrap; justify-content: right; background-color: rgb(0, 16, 65);}"; // Creating class to control the nav container as a flexbox.
 
 
-for (let j = 0; j <= uL.length; j++) {
+for (let j = 0; j < uL.length; j++) {
     uL[j].classList.add("menu__link"); // Adding class menu__link in the Stylesheet to the elements of the array (i.e. <ul> elements) using for loop.
     uL[j].setAttribute("style", "font-family: 'Fira Sans', sans-serif; color: white; font-size: 1.15em;"); // setting an attribute that contains the styles for each element in the array.
 }
