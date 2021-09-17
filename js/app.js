@@ -74,7 +74,9 @@ var i = 3; // This is the index for the sections array, which is used to add new
 
 button.addEventListener("click", function () { // an event listener when pressing the button it should create a new section in the navbar menu.
     i++; 
-   /** --1-- Creating new section in the navbar menu */
+   /**
+    *  --1-- Creating new section in the navbar menu 
+    */
     
    const sec = document.createElement("ul"); // creating a <ul> element inside the document.
     let anc2 = document.createElement("a"); // creating a <a> element inside the document.
@@ -94,7 +96,9 @@ button.addEventListener("click", function () { // an event listener when pressin
     uL[i].classList.add("menu__link"); // Adding class menu__link in the Stylesheet to the elements of the array (i.e. <ul> elements) using for loop.
     uL[i].setAttribute("style", "font-family: 'Fira Sans', sans-serif; color: white; font-size: 1.15em;"); // setting an attribute that contains the styles for each element in the array.
 
-    /** 2- Creating new section on the document in the main element with an id = #sectionX where X is a variable.*/
+    /** 
+     * 2- Creating new section on the document in the main element with an id = #sectionX where X is a variable.
+     */
     
     let newSec = document.createElement("section"); // Creating new section.
     mainElement.appendChild(newSec); //Appending this section to <main>.
@@ -119,7 +123,12 @@ button.addEventListener("click", function () { // an event listener when pressin
 
     alert("Section "+ (i+1) + " has been successfuly added."); // printing text message to the user that the new section has been successfully added.
 });
-/** End of button. */
+
+/** Styling the button */
+button.setAttribute('style', 'color: blue; font-size: 2em; height: inherit;');
+/**
+ *  End of button. 
+ */
 
 /**
  *===== Styling the navigation bar and its sections.
