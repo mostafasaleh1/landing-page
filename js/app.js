@@ -19,8 +19,6 @@
 */
 const navbar = document.querySelector(".navbar__menu"); /* Selecting navbar and assigning it into a variable*/
 var uL = [document.querySelector("#navbar__list")]; /* Selecting ul element iside of the navbar and assigning it into a variable*/
-const x = document.querySelector("html"); // selecting the <html> element to add smooth scroll behaviour to the page.
-x.setAttribute("style", "scroll-behavior: smooth;"); // Making the scroll behaviour smooth in the html element, which means across all the document.
 const mainElement = document.querySelector("#main"); // selecting the <main> element to add new section using the button.
 /**
  * End Global Variables
@@ -43,22 +41,24 @@ var anc = document.createElement('a');
 uL[0].appendChild(anc);
 uL[0] = anc; // Assigning i.e. storing the new <a> element iside the array of Unordered Lists.
 uL[0].textContent = "Section 1"; // Naming the first element in the navbar as (Secton 1).
-uL[0].setAttribute("href", "#section1"); // creating an attribute to refer to the corresponding section.
+uL[0].addEventListener("click", function () { // When we click on the first element in navbar menu go to the corresponding section shown below with a smooth scrolling effect.
+    document.getElementById("section1").scrollIntoView({behavior: "smooth"});
+});
 
 for (let i = 1; i <= 3; i++) {
     const sec = document.createElement("ul"); // creating a <ul> element inside the document.
     let anc2 = document.createElement("a"); // creating a <a> element inside the document.
-    let secID = ("#section" +(i + 1)); // this is the ID of the section which must be assigned inside the <a> element to enable us to scroll to it when we click on the navbar menu.
+    let secID = ("section" +(i + 1)); // this is the ID of the section which must be assigned inside the <a> element to enable us to scroll to it when we click on the navbar menu.
     
     uL[i] = sec; // Assigning i.e. storing the new <ul> element iside the array of Unordered Lists.
    
     navbar.appendChild(uL[i]); // Appending this <ul> element iside the navbar.
-    uL[i].appendChild(anc2); // Appending this <ul> element iside the <ul> element.
-   
-    uL[i] = anc2; // Assigning i.e. storing the new <a> element iside the array of Unordered Lists.
    
     uL[i].textContent = "Section " + (i+1); // Changing the text of this new <ul> element to section and depending on the number of the loop it will be given the name Section (number of the loop).
-    uL[i].setAttribute("href", secID); // creating attributes to refer to the corresponding section.
+
+    uL[i].addEventListener("click", function () { // When we click on an element in navbar menu go to the corresponding section shown below with a smooth scrolling effect.
+        document.getElementById(secID).scrollIntoView({behavior: "smooth"});
+    });
 }
 
 /**
@@ -80,7 +80,7 @@ button.addEventListener("click", function () { // an event listener when pressin
     
    const sec = document.createElement("ul"); // creating a <ul> element inside the document.
     let anc2 = document.createElement("a"); // creating a <a> element inside the document.
-    let secID = ("#section" +(i + 1)); // this is the ID of the section which must be assigned inside the <a> element to enable us to scroll to it when we click on the navbar menu.
+    let secID = ("section" +(i + 1)); // this is the ID of the section which must be assigned inside the <a> element to enable us to scroll to it when we click on the navbar menu.
     
     uL[i] = sec; // Assigning i.e. storing the new <ul> element iside the array of Unordered Lists.
    
@@ -90,7 +90,10 @@ button.addEventListener("click", function () { // an event listener when pressin
     uL[i] = anc2; // Assigning i.e. storing the new <a> element iside the array of Unordered Lists.
    
     uL[i].textContent = "Section " + (i+1); // Changing the text of this new <ul> element to section and depending on the number of the loop it will be given the name Section (number of the loop).
-    uL[i].setAttribute("href", secID); // creating attributes to refer to the corresponding section.
+
+    uL[i].addEventListener("click", function () { // When we click on the created element in navbar menu go to the corresponding section shown below with a smooth scrolling effect.
+        document.getElementById(secID).scrollIntoView({behavior: "smooth"});
+    });
     
     /** styling the created navbar menu element  */
     uL[i].classList.add("menu__link"); // Adding class menu__link in the Stylesheet to the elements of the array (i.e. <ul> elements) using for loop.
