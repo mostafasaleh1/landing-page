@@ -150,10 +150,13 @@ for (let j = 0; j < uL.length; j++) {
 
 // Add class 'active' to section when near top of viewport
 
-
-// Scroll to anchor ID using scrollTO event
-
-
+/**
+ * styling the navbar menu section, and making the mouse show up as pointer when hovering on a section on the navbar menu.
+ */
+ var cursorPointer = document.createElement("style");
+ document.head.appendChild(cursorPointer);
+ cursorPointer.innerHTML = ".navbar__menu ul:hover {cursor: pointer;}";
+ 
 /**
  * End Main Functions
  * Begin Events
