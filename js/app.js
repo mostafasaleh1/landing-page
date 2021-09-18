@@ -104,7 +104,6 @@ button.addEventListener("click", function () { // an event listener when pressin
     mainElement.appendChild(newSec); //Appending this section to <main>.
     newSec.setAttribute("id", ("section" + (i+1))); // adding an id to the new section with an index +1 to the previous section.
     newSec.setAttribute("data-nav", ("Section " + (i+1))); // adding data-nav attribute and setting its value to (Section +1) from the previous section.
-    newSec.setAttribute("class", "your-active-class");
 
     let secDiv = document.createElement("div"); //creating new <div> element.
     newSec.appendChild(secDiv); // appending the new <div> element to the new section element.
@@ -148,10 +147,6 @@ for (let j = 0; j < uL.length; j++) {
 
 // Add class 'active' to section when near top of viewport
 
-for (let i = 2; i <= 4; i++) {
-    let activeSec = document.getElementById(("section"+i));
-    activeSec.setAttribute("class", "your-active-class");
-}
 
 // Scroll to anchor ID using scrollTO event
 
